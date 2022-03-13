@@ -6,7 +6,8 @@
         class="container mx-auto relative z-10 lg:p-8 lg:flex flex-wrap"
         v-if="!isBackgroundAnimating"
       >
-        <PostList />
+        <PostList/>
+        <TimeTravel />
       </div>
     </transition>
   </div>
@@ -15,12 +16,24 @@
 <script>
 import SkewedBackground from '../components/SkewedBackground.vue';
 import PostList from '../components/PostList.vue';
+import TimeTravel from '../components/TimeTravel.vue';
 
 export default {
   name: 'HomeView',
   components: {
     SkewedBackground,
     PostList,
+    TimeTravel,
+  },
+  data() {
+    return {
+      isBackgroundAnimating: true,
+    };
+  },
+  methods: {
+    onBackgroundAnimationEnd() {
+      this.isBackgroundAnimating = false;
+    },
   },
 };
 </script>
