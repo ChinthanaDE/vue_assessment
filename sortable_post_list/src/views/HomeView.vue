@@ -1,33 +1,26 @@
 <template>
-<div class="lg:w-1/2 px-6">
-    <div class="text-3xl font-semibold text-white lg:pb-4 lg:py-0 py-4">
-      Soratble Post List
-    </div>
-   <SkewedBackground @animationEnd="onBackgroundAnimationEnd" />
-   <PostAccordianItem
-          v-for="(post, index) in posts"
-          :key="post.id"
-          :title="post.title"
-          :arrows="generateArrow(index)"
-        />
-        </div>
+   <div class="home-component-container relative">
+    <SkewedBackground @animationEnd="onBackgroundAnimationEnd" />
+    <transition name="fade-slide-in">
+      <div
+        class="container mx-auto relative z-10 lg:p-8 lg:flex flex-wrap"
+        v-if="!isBackgroundAnimating"
+      >
+        <PostList />
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
-import { reactive } from 'vue';
 import SkewedBackground from '../components/SkewedBackground.vue';
-import PostAccordianItem from '../components/PostAccordianItem.vue';
-import post from '../mokData/postItem';
-
-export const store = reactive({
-  post,
-});
+import PostList from '../components/PostList.vue';
 
 export default {
   name: 'HomeView',
   components: {
     SkewedBackground,
-    PostAccordianItem,
+    PostList,
   },
 };
 </script>
