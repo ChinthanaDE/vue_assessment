@@ -42,10 +42,5 @@ export default {
       type: String,
     },
   },
-  computed: {
-    postTitle() {
-      return this.title.charAt(0).toUpperCase() + this.title.slice(1);
-    },
-  },
 };
 </script>
