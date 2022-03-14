@@ -1,7 +1,7 @@
 <template>
   <div class='post-item-container
    bg-white rounded shadow-md flex flex-row justify-center px-4 py-4 mb-6'>
-    <div class="post-item-title text-gray-700 flex-grow flex items-center">{{ postTitle }}</div>
+    <div class="post-item-title text-gray-700 flex-grow flex items-center">{{ title }}</div>
     <div class="flex flex-col" :class=" arrows === 'both' ? 'justify-between' : 'justify-center'">
       <div
         class="arrow-container up-arrow-container"
