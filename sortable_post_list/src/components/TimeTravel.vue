@@ -24,7 +24,7 @@
            text-gray-500"
         >
           <div>No actions commited yet</div>
-          <font-awesome-icon icon="fa-solid fa-clock-rotate-left"  class="ml-2 text-4xl" />
+          <font-awesome-icon icon="sad-cry"  class="ml-2 text-4xl" />
         </div>
       </div>
     </div>
