@@ -10,6 +10,7 @@
           :arrows="changeArrow(index)"
         />
       </transition-group>
+      <Spinner v-else key="2" />
     </transition>
   </div>
 </template>
@@ -17,10 +18,12 @@
 import { mapGetters } from 'vuex';
 
 import PostAccordianItem from './PostAccordianItem.vue';
+import Spinner from './Spinner.vue';
 
 export default {
   name: 'PostList',
   components: {
+    Spinner,
     PostAccordianItem,
   },
   created() {
