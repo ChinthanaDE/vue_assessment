@@ -9,7 +9,7 @@
         >
           <transition-group name="time-travel" tag="div">
             <TimeTravelItem
-              v-for="(action, index) in history"
+              v-for="(action, index) in historyState.history"
               :key="action.id"
               :postId="action.postId"
               :from="action.from"
@@ -19,12 +19,12 @@
             />
           </transition-group>
         </div>
-        <div
+        <div v-if="!historyState.history.length"
           class="default-timetravel-message bg-white p-4 rounded shadow-md flex items-center
            text-gray-500"
         >
           <div>No actions commited yet</div>
-          <font-awesome-icon icon="fa-solid fa-clock-rotate-left"  class="ml-2 text-4xl" />
+          <font-awesome-icon icon="sad-cry"  class="ml-2 text-4xl" />
         </div>
       </div>
     </div>
@@ -33,12 +33,19 @@
 
 <script>
 
+import { mapGetters, mapActions } from 'vuex';
 import TimeTravelItem from './TimeTravelItem.vue';
 
 export default {
   name: 'TimeTravel',
   components: {
     TimeTravelItem,
+  },
+  computed: mapGetters({
+    historyState: 'getHistoryState',
+  }),
+  methods: {
+    ...mapActions({ timeTravel: 'timeTravel' }),
   },
 };
 </script>

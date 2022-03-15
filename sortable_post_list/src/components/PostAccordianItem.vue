@@ -6,7 +6,7 @@
       <div
         class="arrow-container up-arrow-container"
         v-if="arrows !== 'down'"
-        @click="$emit('moveUparrow')"
+        @click="$emit('moveUp')"
         @keypress="moveUparrow"
       >
         <font-awesome-icon
@@ -17,7 +17,7 @@
       <div
         class="arrow-container down-arrow-container"
         v-if="arrows !== 'up'"
-        @click="$emit('moveDownarrow')"
+        @click="$emit('moveDown')"
         @keypress="moveDownarrow"
       >
         <font-awesome-icon
