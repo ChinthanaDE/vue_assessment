@@ -1,5 +1,5 @@
 # sortable_post_list
-
+Live Demo: https://temper-vue-assessment.vercel.app/
 ## Project setup
 ```
 npm install
@@ -29,6 +29,3 @@ npm run test:e2e
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
