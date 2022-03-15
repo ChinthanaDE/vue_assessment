@@ -9,14 +9,16 @@ export default {
     postlist: {
       posts: [],
     },
-    history: [],
+    historylist: {
+      history: [],
+    },
   },
   mutations: {
     SET_POST: (state, payload) => {
       state.postlist.posts = payload.posts;
     },
     ADD_HISTORY: (state, payload) => {
-      state.history.push({ ...payload, id: uuidv4() });
+      state.historylist.history.push({ ...payload, id: uuidv4() });
     },
   },
   actions: {
@@ -31,20 +33,17 @@ export default {
     },
     movePost: ({ commit, state }, payload) => {
       const sortedPosts = moveArrayItem(state.postlist.posts, payload.from, payload.to);
-      const { id } = payload.from;
-      const { from } = payload.from;
-      const { to } = payload.to;
       commit('SET_POST', { posts: sortedPosts });
       commit('ADD_HISTORY', {
-        postId: id,
-        from,
-        to,
+        postId: payload.from,
+        from: payload.from,
+        to: payload.to,
         posts: sortedPosts,
       });
     },
-    timeTravel: ({ commit, state: { history } }, historyIndex) => {
-      const { posts } = history[historyIndex];
-      commit('SET_POST', posts);
+    timeTravel: ({ commit, state }, historyIndex) => {
+      const posts = state.historylist.history[historyIndex];
+      commit('SET_POST', { ...posts });
     },
   },
 };
